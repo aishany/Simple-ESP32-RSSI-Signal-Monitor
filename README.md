@@ -1,7 +1,7 @@
 # Simple ESP32 RSSI Monitor
 
 ## Project Overview
-This project uses an **ESP32 microcontroller** to actively monitor the **Received Signal Strength Indicator (RSSI)** of a local Wi-Fi connection. The code samples the wireless signal strength in real-time and acts as an automated threshold monitor, triggering a physical alert via GPIO 19 (driving a connected LED) whenever the signal strength falls below -50 dBm. It also handles automatic network re-connection if the link state drops.
+This project uses an **ESP32 microcontroller** to actively monitor the **Received Signal Strength Indicator (RSSI)** of a local Wi-Fi connection. The code samples the wireless signal strength in real-time and acts as an automated threshold monitor. It triggers a physical alert via GPIO 19 (driving a connected LED) whenever the signal strength falls below -50 dBm. It also handles automatic network re-connection if the link state drops.
 
 ## Prerequisites
 * ESP32 Development Board
