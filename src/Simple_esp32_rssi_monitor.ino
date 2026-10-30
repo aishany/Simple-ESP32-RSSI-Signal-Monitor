@@ -21,14 +21,29 @@ void setup() {
   Serial.println("Connected.");
 }
 
+int averageRSSI() {
+    int total = 0;
+
+    for (int i=0; i<5; i++) {
+      total = total + WiFi.RSSI();
+      delay(100);
+    }
+    return total/5;
+  }
+
 void loop() {
 
   if (WiFi.status() == WL_CONNECTED){
     int rssi = WiFi.RSSI();
-    Serial.print("Signal Strength(RSSI): ");
+    int sRssi = averageRSSI();
+    
+    Serial.print("Raw Signal Strength(RSSI): ");
     Serial.println(rssi);
+    
+    Serial.print("Smoothed out Signal Strength(RSSI): ");
+    Serial.println(sRssi);
 
-    if (rssi < -50) {
+    if (sRssi < -50) {
       digitalWrite(19, HIGH);
     } else {
       digitalWrite(19, LOW);
